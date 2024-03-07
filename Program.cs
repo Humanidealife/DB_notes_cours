@@ -1,8 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
-using System.IO; // Permet d'utiliser les clas StreamWriter et StreamReader
+using System.IO; // Permet d'utiliser les class StreamWriter et StreamReader
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json; // cet espace de nom Permet de sérialiser et désérialiser des objets au format text dans un fichier JSON
 
 namespace DB_notes_cours
 {
