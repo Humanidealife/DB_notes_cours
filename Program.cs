@@ -10,9 +10,34 @@ namespace DB_notes_cours
   {
     static void Main(string[] args)
     {
-      using (StreamWriter sw = new StreamWriter("test.txt"))// si l'on ne précise pas le chemin, cela va créer un fichier dans le dossier du projet
+      // using (StreamWriter sw = new StreamWriter("test.txt"))// si l'on ne précise pas le chemin, cela va créer un fichier dans le dossier du projet
+      // {
+      //   sw.WriteLine("Mon texte.");
+      // }
+
+      // using (StreamWriter sw = File.AppendText("test.txt")) // Permet d'ajouter du texte à la fin du fichier
+      // {
+      //   sw.WriteLine("Ligne ajoutée");
+      // }
+
+      // Lecture ligne par ligne
+      using (StreamReader sr = new StreamReader("test.txt"))
       {
-        sw.WriteLine("Mon premier texte.");
+        string Line = null;
+        Line = sr.ReadLine();
+
+        while (Line != null)
+        {
+          Console.WriteLine(Line);
+          Line = sr.ReadLine();
+        }
+      }
+
+      // Lecture de tpout le fichier en une seule fois
+      using (StreamReader sr2 = new StreamReader("test.txt"))
+      {
+        string File = sr2.ReadToEnd();
+        Console.WriteLine(File);
       }
       Console.ReadKey();
     }
