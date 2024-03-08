@@ -28,7 +28,7 @@ namespace DB_notes_cours
     public Client(string nom, string prenom)
     {
       this._nom = nom;
-      this._prenom =prenom;
+      this._prenom = prenom;
     }
 
     // un Constructeur par défaut qui ne possède rien pour instancier un Objet sans valeur
@@ -39,4 +39,5 @@ namespace DB_notes_cours
     {
       Console.WriteLine("Bonjour je m'appelle : " + _nom + " " + _prenom);
     }
+  }
 }
