@@ -34,7 +34,7 @@ namespace DB_notes_cours
         }
       }
 
-      // Lecture de tpout le fichier en une seule fois
+      // Lecture de tout le fichier en une seule fois
       using (StreamReader sr2 = new StreamReader("test.txt"))
       {
         string File = sr2.ReadToEnd();
