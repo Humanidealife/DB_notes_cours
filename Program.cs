@@ -57,21 +57,30 @@ namespace DB_notes_cours
 
       // c2.Information();
 
-      Client Client1 = new Client { Nom = "AUPONT", Prenom = "Anne" };
-      Client Client2 = new Client { Nom = "Blot", Prenom = "Bernard" };
-      Client Client3 = new Client { Nom = "Core", Prenom = "Catherina" };
+      // Client Client1 = new Client { Nom = "AUPONT", Prenom = "Anne" };
+      // Client Client2 = new Client { Nom = "Blot", Prenom = "Bernard" };
+      // Client Client3 = new Client { Nom = "Core", Prenom = "Catherina" };
 
       // sérialiser une liste d'objets
       List<Client> listeClients = new List<Client>();
-      listeClients.Add(Client1);
-      listeClients.Add(Client2);
-      listeClients.Add(Client3);
+      // listeClients.Add(Client1);
+      // listeClients.Add(Client2);
+      // listeClients.Add(Client3);
 
       // sérialisation de la liste listeClients
-      string jsonListeClients = JsonSerializer.Serialize(listeClients);
-      File.WriteAllText("listeClients.json", jsonListeClients);
+      // string jsonListeClients = JsonSerializer.Serialize(listeClients);
+      // File.WriteAllText("listeClients.json", jsonListeClients);
 
-      
+      // Désérialisation de la liste listeCLients
+      string deserialisationListeClients =  File.ReadAllText("listeClients.json");
+      listeClients = JsonSerializer.Deserialize<List<Client>>(deserialisationListeClients);
+      foreach (Client item in listeClients)
+      {
+        item.Information();
+      }
+
+
+
 
 
       Console.ReadKey();
