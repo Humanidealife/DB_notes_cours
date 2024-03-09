@@ -41,17 +41,21 @@ namespace DB_notes_cours
         Console.WriteLine(File);
       }
       // Instanciation d'un Objet Client
-      Client c1 = new Client("AUPOONT", "Anne");
-      // Sérialisation de cet Objet dans un fichier JSON
-      // JsonSerializer est une class qui permet de sérialiser et désérialiser des objets au format text dans un fichier JSON. Il est accessible parce que nous avons ajouté using System.Text.Json
-      string jsonString = JsonSerializer.Serialize(c1);
-      // écrire dans le fichier
-      // Class File est une class qui permet de manipuler des fichiers
-      // WriteAllText est une méthode de la class File qui permet d'écrire dans un fichier
-      // le parameètre est le chemin du fichier et le contenu à écrire
-      File.WriteAllText("data.json", jsonString);
+      // Client c1 = new Client("AUPOONT", "Anne");
+      // // Sérialisation de cet Objet dans un fichier JSON
+      // // JsonSerializer est une class qui permet de sérialiser et désérialiser des objets au format text dans un fichier JSON. Il est accessible parce que nous avons ajouté using System.Text.Json
+      // string jsonString = JsonSerializer.Serialize(c1);
+      // // écrire dans le fichier
+      // // Class File est une class qui permet de manipuler des fichiers
+      // // WriteAllText est une méthode de la class File qui permet d'écrire dans un fichier
+      // // le parameètre est le chemin du fichier et le contenu à écrire
+      // File.WriteAllText("data.json", jsonString);
 
+      // Désérialisation
+      string jsonString2 = File.ReadAllText("data.json");
+      Client c2 = JsonSerializer.Deserialize<Client>(jsonString2);
 
+      c2.Information();
 
       Console.ReadKey();
     }

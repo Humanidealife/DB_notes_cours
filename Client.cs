@@ -37,7 +37,7 @@ namespace DB_notes_cours
     // une simple Méthode public information qui présente une information sur l'Objet Client
     public void Information()
     {
-      Console.WriteLine("Bonjour je m'appelle : " + _nom + " " + _prenom);
+      Console.WriteLine("Bonjour mon nom est  " + _nom + " mon prénom est " + _prenom);
     }
   }
 }
