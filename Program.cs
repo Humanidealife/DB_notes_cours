@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using System.IO; // Permet d'utiliser les class StreamWriter et StreamReader
-using System.Collections.Generic;
+using System.Collections.Generic; // Permet d'utiliser les listes
 using System.Text;
 using System.Text.Json; // cet espace de nom Permet de sérialiser et désérialiser des objets au format text dans un fichier JSON
 
@@ -41,7 +41,7 @@ namespace DB_notes_cours
         Console.WriteLine(File);
       }
       // Instanciation d'un Objet Client
-      // Client c1 = new Client("AUPOONT", "Anne");
+      // Client cA = new Client("AUPOONT", "Anne");
       // // Sérialisation de cet Objet dans un fichier JSON
       // // JsonSerializer est une class qui permet de sérialiser et désérialiser des objets au format text dans un fichier JSON. Il est accessible parce que nous avons ajouté using System.Text.Json
       // string jsonString = JsonSerializer.Serialize(c1);
@@ -52,10 +52,27 @@ namespace DB_notes_cours
       // File.WriteAllText("data.json", jsonString);
 
       // Désérialisation
-      string jsonString2 = File.ReadAllText("data.json");
-      Client c2 = JsonSerializer.Deserialize<Client>(jsonString2);
+      // string jsonString2 = File.ReadAllText("data.json");
+      // Client cB = JsonSerializer.Deserialize<Client>(jsonString2);
 
-      c2.Information();
+      // c2.Information();
+
+      Client Client1 = new Client { Nom = "AUPONT", Prenom = "Anne" };
+      Client Client2 = new Client { Nom = "Blot", Prenom = "Bernard" };
+      Client Client3 = new Client { Nom = "Core", Prenom = "Catherina" };
+
+      // sérialiser une liste d'objets
+      List<Client> listeClients = new List<Client>();
+      listeClients.Add(Client1);
+      listeClients.Add(Client2);
+      listeClients.Add(Client3);
+
+      // sérialisation de la liste listeClients
+      string jsonListeClients = JsonSerializer.Serialize(listeClients);
+      File.WriteAllText("listeClients.json", jsonListeClients);
+
+      
+
 
       Console.ReadKey();
     }
